@@ -2,6 +2,9 @@
 C, R = map(int, input().split())    # 공연장의 크기 C * R
 K = int(input())            # K : 관객의 대기 번호
 
+if K > C * R:
+    print(0)    # 만약 숫자들 보다 관객 번호가 크면 0을 출력
+
 arr = [[0] * C for _ in range(R)]
 dx = [-1, 0, 1, 0]  # 상우하좌
 dy = [0, 1, 0, -1]
@@ -22,11 +25,10 @@ while cnt < C * R + 1:
         if k > 3:   # k가 3보다 크다면 인덱스 오류가 나니까
             k = k % 4   # k를 4로 나눈 나머지로 대신한다
 print(arr)
-if K > C * R:
-    print(0)    # 만약 숫자들 보다 관객 번호가 크면 0을 출력
+
 
 for i in range(R):
     for j in range(C):
         if arr[i][j] == K:  # 관객번호랑 똑같은 숫자가 있다면
-            print(i, j)
+            print(C - i - 1, j + 1) # 0 5 -> 인데스 값을 어떻게 변경해야 하는거지?
 
