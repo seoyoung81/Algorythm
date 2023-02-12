@@ -12,10 +12,11 @@ for test_case in range(1, T+1):
     m = len(numbers_B)
 
     # 곱하기 구하기
-    multiple_list = [0] * n
-    for j in range(n):
+    multiple_list = [0] * (m-n+1)
+    for j in range(m-n+1):
         for i in range(n):
-            multiple_list[j] += (numbers_A[i]*numbers_B[i+j])
+            # print(numbers_A[i] * numbers_B[i+j])
+            multiple_list[j] += (numbers_A[i] * numbers_B[i+j])
     # print(multiple_list)
 
     '''
@@ -25,7 +26,7 @@ for test_case in range(1, T+1):
     '''
     # 최댓값 구하기
     maxV = multiple_list[0]
-    for i in range(1, n):
+    for i in range(1, m-n+1):
         if maxV < multiple_list[i]:
             maxV = multiple_list[i]
 
