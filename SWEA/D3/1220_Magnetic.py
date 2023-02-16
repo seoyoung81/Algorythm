@@ -15,21 +15,28 @@ for test_case in range(1, T+1):
             if 0 <= ni < N and 0 <= nj < N and table[ni][nj] == 0:
                 if table[i][j] == 2:    # S극 자성체라면
                     k = 3   # 위로
+                    i = ni
+                    j = nj
                     if nj != 0:     # N극에 도착하지 못한 경우
                         if table[ni][nj] == 1:  # 근데 N극을 만났다면?
-                            continue    # 상쇄
+                            continue
                         else:
                             cnt += 1
                     else: # N 극에 도착했다면
                         table[ni][nj] = 0   # 0으로 초기화
-                    print(table)
+                    # print(table)
                 elif table[i][j] == 1:  # N 극 자성체라면
                     k = 1   # 아래로
+                    i = ni
+                    j = nj
                     if nj != N-1:   # S극에 도착하지 못한 경우
                         if table[ni][nj] == 2:
                             continue
                         else:
                             cnt += 1
+                    else: # S 극에 도착했다면
+                        table[ni][nj] = 0   # 0으로 초기화
+                    # print(table)    
 
     print(cnt)
 
