@@ -1,35 +1,20 @@
-height_list = []
+height = []
+for _ in range(9):
+    height.append(int(input()))   # 난쟁이 키 입력 9명 리스트에 추가
 
+cur = sum(height)   # 전체 키의 합
+fake1 = fake2 = 0
 for i in range(9):
-    h = int(input())
-    height_list.append(h)
-# print(height_list) # [20, 7, 23, 19, 10, 15, 25, 8, 13]
-sub = sum(height_list) - 100    # 40
+    for j in range(i+1, 9):
+        if height[i] + height[j] == sum(height) - 100:  # 2 명을 제외한 합이 100이라면
+            fake1 = height[i]
+            fake2 = height[j]
+            break
 
-# 2개 합 40 찾기 -> 36개
-first = 0   # 초기값 0 설정
-second = 0
+height.remove(fake1)    # 인덱스 오류 없이 리스트의 값을 제거 하고 싶을 때
+height.remove(fake2)
 
-for i in range(9):
-    for j in range(i+1, 9): # first 보다 뒤에 있는 값이 필요
-        if height_list[i] + height_list[j] == sub:  # 더해서 40이면
-            first = height_list[i]      # first 에 i 할당
-            second = height_list[j]     # second 에 j 할당
-            break                       # 하나씩만 찾고 멈추기
+sorted_short = sorted(height)
 
-height_list.remove(first)       # first 리스트에서 삭제
-height_list.remove(second)     
-            
-# print(height_list)
-# new_height = ''.join([str(n) for n in height_list])
-
-height_list.sort()  # 오름차순으로 정렬하기
-
-for h in height_list:
-    print(h)
-
-
-
-
-            
-
+for i in range(7):
+    print(sorted_short[i])
