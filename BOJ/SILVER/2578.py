@@ -40,14 +40,12 @@ for k in range(25):
             cnt_lst[0][3] = 1
 
 
-    # print(cnt_lst)
+    print(cnt_lst)
     total = 0
     for lst in cnt_lst:
         total += lst.count(1)
         if total >= 3:
             print(k+1)
-            # k_lst.append(k)
-            # print(cnt_lst)
             exit()
 
 
