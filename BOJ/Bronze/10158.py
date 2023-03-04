@@ -18,4 +18,4 @@ for _ in range(t):
         dy = 1  # x좌표는 무조건 +1
     elif q == h:    # y 좌표가 위에 부딪히면
         dy = -1 # x 좌표는 무조건 +1
-    print(p, q)
+print(p, q)
