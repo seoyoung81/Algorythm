@@ -5,6 +5,7 @@ tomato = [[list(map(int, input().split())) for _ in range(N)] for _ in range(H)]
 
 cnt = 1
 a = 0
+cnt_lst = [10]
 while cnt != 0:
     a += 1
     check = cnt
@@ -22,9 +23,16 @@ while cnt != 0:
                             if 0 <= ni < M and 0 <= nj < N and 0 <= nk < H:
                                 if tomato[nk][nj][ni] == 0: # 익지 않은 토마토라면
                                     tomato[nk][nj][ni] = 1  # 익히기
+
     if check == cnt:
         cnt = 0
         break
 
-print(tomato)
+    cnt_lst.append(cnt)
+    for i in range(len(cnt_lst)-1):
+        if cnt_lst[i] == cnt_lst[i+1]:
+            a = 0
+            break
+
+# print(tomato)
 print(a-1)
