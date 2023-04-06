@@ -1,11 +1,24 @@
 n = int(input())
 stack = []
-for _ in range(n):
-    number = int(input())
-    if not stack:   # empty stack
-        stack.append(number)
-    else:           # not empty stack
+answer = []
+flag = 0
+cur = 1
 
+for i in range(n):
+    num = int(input())
+    while cur <= num:   # num 이랑 같아질 때까지 push
+        stack.append(cur)
+        answer.append('+')
+        cur += 1
 
-4 3 6 8 7 5 2 1
-push push pop pop push push pop push pop pop pop
+    if stack[-1] == num:    # 마지막 값이 num이랑 같으면
+        stack.pop()         # pop
+        answer.append('-')
+    else:
+        print('NO')
+        flag = 1
+        break
+
+if flag == 0:
+    for i in answer:
+        print(i)
