@@ -1,11 +1,11 @@
-lst = list(map(int, input().split()))
-
-room = sorted(lst[:3], reverse=True)
-student = lst[3]
-for bed in room:
-    student %= bed
-
-if student == 0:
+a,b,c,n = map(int, input().split())
+count = 0
+for i in range(n//a+1):
+    for j in range(n//b+1):
+        for k in range(n//c+1):
+            if a * i + b * j + c * k == n:
+                count = 1
+if count == 1:
     print(1)
 else:
     print(0)
