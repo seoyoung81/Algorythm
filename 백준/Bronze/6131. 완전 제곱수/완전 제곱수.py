@@ -1,7 +1,10 @@
 N = int(input())
-result = 0
-for i in range(1, 501):
-    for j in range(i+1, 501):
-        if (i*i + N) == j*j:
-            result += 1
-print(result)
+square = [i*i for i in range(1, 501)]
+count = 0
+
+for i in range(499):
+    for j in range(i+1, 500):
+        if square[i] + N == square[j]:
+            count += 1
+
+print(count)
