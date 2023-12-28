@@ -1,15 +1,15 @@
-number = list(map(int, input().split()))
+numbers = list(map(int, input().split()))
+min_number = min(numbers)
+result = 0
 
-max_num = max(number)
-min_num = min(number)
-start = min(max_num, min_num)
-for i in range(start, 1000000):
-    cnt = 0
-    for num in number:
-        if i%num == 0:
-            cnt += 1
-        if cnt == 3:
-            print(i)
-            break
-    if cnt == 3:
+for i in range(min_number, 100**3+1):
+    count = 0
+    for num in numbers:
+        if i % num == 0:
+            count += 1
+
+    if count >= 3:
+        result = i
         break
+
+print(result)
