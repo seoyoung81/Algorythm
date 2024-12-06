@@ -1,21 +1,15 @@
-
-N = int(input())    # 회의의 수
-info = []
+N = int(input())
+lst = []
 for _ in range(N):
-    info.append(tuple(map(int, input().split())))
-
-info = sorted(info, key=lambda a: a[0])
-info = sorted(info, key=lambda a: a[1])
+  lst.append(list(map(int, input().split())))
 
 
-lst = [info[0]]
+lst = sorted(lst, key=lambda x: x[0])
+lst = sorted(lst, key=lambda x: x[1])
+
+result = [lst[0]]
 for i in range(1, N):
-    if lst[-1][1] <= info[i][0]:
-        lst.append(info[i])
-print(len(lst))
+  if result[-1][1] <= lst[i][0]:
+    result.append(lst[i])
 
-
-
-
-
-
+print(len(result))
