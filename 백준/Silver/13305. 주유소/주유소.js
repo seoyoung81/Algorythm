@@ -12,7 +12,7 @@ let cost = input[2]
 
 // 항상 최솟값으로 사기
 let result = distance[0] * cost[0];
-let minCost = 10001;
+let minCost = cost[0];
 for (let i = 1; i < N - 1; i++) {
   minCost = Math.min(minCost, cost[i]);
   result += distance[i] * minCost;
