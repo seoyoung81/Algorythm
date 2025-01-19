@@ -11,19 +11,20 @@ for (let i = 1; i < N + 1; i++) {
 }
 
 function compare(a, b) {
-  if (a[1] != b[1]) {
-    return a[1] - b[1];
-  } else return a[0] - b[0];
+  if (a[1] === b[1]) {
+    return a[0] - b[0];
+  }
+  return a[1] - b[1];
 }
 arr.sort(compare);
 
-let cnt = 1,
-  cur = 0;
+let endTime = arr[0][1];
+let result = [arr[0]];
 for (let i = 1; i < N; i++) {
-  if (arr[cur][1] <= arr[i][0]) {
-    cur = i;
-    cnt += 1;
+  if (result[result.length - 1][1] <= arr[i][0]) {
+    result.push(arr[i]);
+    endTime = arr[i][1];
   }
 }
 
-console.log(cnt);
+console.log(result.length);
